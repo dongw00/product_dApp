@@ -9,7 +9,7 @@ if (web3.isConnected()) {
   exit;
 }
 
-const contractAddress = '0x89a3a0773da2fb981d2d34d50e213d20439448e0';
+const contractAddress = '0x57b85b42016b2542b3ec36b6596db766d8e34dc7';
 const smartContract = web3.eth.contract(abi).at(contractAddress);
 
 function init() {
