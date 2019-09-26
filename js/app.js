@@ -1,6 +1,6 @@
 typeof web3 !== 'undefined'
   ? (web3 = new Web3(web3.currentProvider))
-  : (web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:8545')));
+  : (web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:7545')));
 
 if (web3.isConnected()) {
   console.log('connected');
@@ -9,19 +9,17 @@ if (web3.isConnected()) {
   exit;
 }
 
-const contractAddress = '0x57b85b42016b2542b3ec36b6596db766d8e34dc7';
+const contractAddress = '0x9f49cdd950453f91515c26823c368a9d394b2c5d';
 const smartContract = web3.eth.contract(abi).at(contractAddress);
 
 function init() {
   // 첫번째 계정으로 주소 설정
   document.getElementById('account').value = web3.eth.accounts[0];
-  // 비밀번호 입력
-  document.getElementById('pass').value = 'eth';
 }
 
 function showList() {
   const table = document.getElementById('table1');
-  const length = smartContract.getNumOfProducts();
+  const length = smartContract.getTotal();
 
   smartContract.product().watch((err, res) => {
     if (!err) {
@@ -31,16 +29,15 @@ function showList() {
       const cell2 = row.insertCell(1);
       const cell3 = row.insertCell(2);
       const cell4 = row.insertCell(3);
-      cell1.innerHTML = res.args.number.c[0];
+      cell1.innerHTML = res.args.id.toString();
       cell2.innerHTML = res.args.productName;
       cell3.innerHTML = res.args.location;
       cell4.style.width = '60%';
-      cell4.innerHTML = new Date(res.args.timestamp.c[0]);
     }
   });
 
   for (let i = 0; i < length; i++) {
-    const product = smartContract.getProductStruct(i);
+    const product = smartContract.getProduct(i);
     const toString = product.toString();
     const strArray = toString.split(',');
 
@@ -63,19 +60,15 @@ function addProduct() {
   const proname = document.getElementById('proname').value;
   const proloc = document.getElementById('proloc').value;
   const account = document.getElementById('account').value;
-  if (
-    web3.personal.unlockAccount(account, document.getElementById('pass').value)
-  ) {
-    smartContract.addProStru(
-      pronumber,
-      proname,
-      proloc,
-      { from: account, gas: 2000000 },
-      (err, result) => {
-        if (!err) alert('트랜잭션이 성공적으로 전송되었습니다.\n' + result);
-      }
-    );
-  }
+  smartContract.addProduct(
+    pronumber,
+    proname,
+    proloc,
+    { from: account, gas: 3000000 },
+    (err, result) => {
+      if (!err) alert('트랜잭션이 성공적으로 전송되었습니다.\n' + result);
+    }
+  );
 }
 
 $(function() {
