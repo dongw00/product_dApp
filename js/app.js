@@ -33,7 +33,6 @@ function showList() {
       cell2.innerHTML = res.args.productName;
       cell3.innerHTML = res.args.location;
       cell4.style.width = '60%';
-
       cell4.innerHTML = new Date(res.args.timestamp.toString() * 1000);
     }
   });
