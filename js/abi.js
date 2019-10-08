@@ -3,7 +3,7 @@ const abi = [
     constant: false,
     inputs: [
       {
-        name: '_initNumber',
+        name: '_id',
         type: 'uint256',
       },
       {
@@ -15,7 +15,7 @@ const abi = [
         type: 'string',
       },
     ],
-    name: 'addProStru',
+    name: 'addProduct',
     outputs: [],
     payable: false,
     stateMutability: 'nonpayable',
@@ -26,7 +26,7 @@ const abi = [
     inputs: [
       {
         indexed: false,
-        name: 'number',
+        name: 'id',
         type: 'uint256',
       },
       {
@@ -50,8 +50,39 @@ const abi = [
   },
   {
     constant: true,
+    inputs: [
+      {
+        name: '_idx',
+        type: 'uint256',
+      },
+    ],
+    name: 'getProduct',
+    outputs: [
+      {
+        name: '',
+        type: 'uint256',
+      },
+      {
+        name: '',
+        type: 'string',
+      },
+      {
+        name: '',
+        type: 'string',
+      },
+      {
+        name: '',
+        type: 'uint256',
+      },
+    ],
+    payable: false,
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    constant: true,
     inputs: [],
-    name: 'getNumOfProducts',
+    name: 'getTotal',
     outputs: [
       {
         name: '',
@@ -66,45 +97,14 @@ const abi = [
     constant: true,
     inputs: [
       {
-        name: '_index',
+        name: '',
         type: 'uint256',
       },
     ],
-    name: 'getProductStruct',
+    name: 'products',
     outputs: [
       {
-        name: '',
-        type: 'uint256',
-      },
-      {
-        name: '',
-        type: 'string',
-      },
-      {
-        name: '',
-        type: 'string',
-      },
-      {
-        name: '',
-        type: 'uint256',
-      },
-    ],
-    payable: false,
-    stateMutability: 'view',
-    type: 'function',
-  },
-  {
-    constant: true,
-    inputs: [
-      {
-        name: '',
-        type: 'uint256',
-      },
-    ],
-    name: 'productes',
-    outputs: [
-      {
-        name: 'number',
+        name: 'id',
         type: 'uint256',
       },
       {
