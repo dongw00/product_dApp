@@ -1,49 +1,39 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="./style.css" type="text/css" />
-  </head>
 
-  <body>
-    <div class="container">
-      <h1 class="mt-3 mb-4">공산품 생산관리</h1>
-      <div>
-        계정:
-        <input
-          type="text"
-          id="account"
-          value=""
-          placeholder="주소를 입력해주세요"
-        />
-        <p></p>
-      </div>
-      <br />
-      <div>
-        <input type="text" id="proname" placeholder="공산품 제품명" />
-        <input type="text" id="proloc" placeholder="생산지" />
-        <input type="text" id="pronumber" placeholder="공산품 갯수" />
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <link rel="stylesheet" href="./style.css" type="text/css" />
+</head>
 
-        <button onClick="addProduct()">제품 등록하기</button>
-      </div>
-      <table style="width:100%" id="table1"></table>
+<body>
+  <div class="container">
+    <h1 class="mt-3 mb-4">공산품 생산관리</h1>
+    <div>
+      계정:
+      <input type="text" id="account" value="" placeholder="주소를 입력해주세요" />
+      <p></p>
     </div>
+    <br />
+    <div>
+      <input type="text" id="proname" placeholder="공산품 제품명" />
+      <input type="text" id="proloc" placeholder="생산지" />
+      <input type="text" id="pronumber" placeholder="공산품 갯수" />
 
-    <script
-      src="https://code.jquery.com/jquery-3.4.0.min.js"
-      integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
-      crossorigin="anonymous"
-    ></script>
-    <script type="text/javascript" src="./js/lib/web3-light@0.20.6.js"></script>
-    <script type="text/javascript" src="./js/lib/moment.js"></script>
-    <script type="text/javascript" src="./js/lib/moment_locale.js"></script>
-    <script type="text/javascript" src="./js/abi.js"></script>
-    <script type="text/javascript" src="./js/app.js"></script>
-  </body>
+      <button onClick="addProduct()">제품 등록하기</button>
+    </div>
+    <table style="width:100%" id="table1"></table>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.4.0.min.js"
+    integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="./js/lib/web3-light@0.20.6.js"></script>
+  <script type="text/javascript" src="./js/lib/moment.js"></script>
+  <script type="text/javascript" src="./js/lib/moment_locale.js"></script>
+  <script type="text/javascript" src="./js/abi.js"></script>
+  <script type="text/javascript" src="./js/app.js"></script>
+</body>
+
 </html>
